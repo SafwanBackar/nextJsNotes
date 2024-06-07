@@ -12,3 +12,5 @@
 5. Project Discuss:
    - Use Pathhelpers to define all the paths, so that if a parent path changes, you dont have to change all the path instead just the variable where path helper defined. Used for large/medium projects.
    - For home pages, time based cache of static data is better, we dont need to show user new post exactly when it was created, saving performance. Just preferences.
+   - Zod library for form validation.
+   - useFormState hook use in client component helps to define the action which would be in seperate server action file and set up state object to return form validation errors if any. When using ts, make sure action defined for the hook in the server, where 1st arg is formstate is of correct type.
