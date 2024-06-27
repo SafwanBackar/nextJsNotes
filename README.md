@@ -14,3 +14,5 @@
    - For home pages, time based cache of static data is better, we dont need to show user new post exactly when it was created, saving performance. Just preferences.
    - Zod library for form validation.
    - useFormState hook use in client component helps to define the action which would be in seperate server action file and set up state object to return form validation errors if any. When using ts, make sure action defined for the hook in the server, where 1st arg is formstate is of correct type.
+   - When invoked in a form, the action automatically receives the FormData object. You don't need to use React useState to manage fields, instead, you can extract the data using the native FormData methods
+   - You can pass additional arguments to a Server Action using the JavaScript bind method. [https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#passing-additional-arguments](Doc)
