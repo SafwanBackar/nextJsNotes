@@ -11,9 +11,13 @@
    - Also in prod mode, for dynamic pages, we can cache datas that are already in the db using generateStaticParams fn. Next will cache all the data with its id and use it while loading show page of data.
 5. Project Discuss:
    - Use Pathhelpers to define all the paths, so that if a parent path changes, you dont have to change all the path instead just the variable where path helper defined. Used for large/medium projects.
+   - Because of auth defined in header, all the pages can bceome dynamic during build even though its meant to be static. So sepereate auth check file to different file and check using useSession and use that as a component in the header. Now the home page will be static.
    - For home pages, time based cache of static data is better, we dont need to show user new post exactly when it was created, saving performance. Just preferences.
    - Zod library for form validation.
    - useFormState hook use in client component helps to define the action which would be in seperate server action file and set up state object to return form validation errors if any. When using ts, make sure action defined for the hook in the server, where 1st arg is formstate is of correct type.
    - When invoked in a form, the action automatically receives the FormData object. You don't need to use React useState to manage fields, instead, you can extract the data using the native FormData methods
    - You can pass additional arguments to a Server Action using the JavaScript bind method. [Reference](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#passing-additional-arguments)
-   - If there are queries made in child components, there might come duplicate queries with same argument, if the approach of fetching data by this method of making queries in child instead of parent, we can make use of react built in feature 'cache', which does request memoization and caches values for duplicate queries. Wrap your function by cache function which is imported from react.
+   - If there are queries made in child components, there might come duplicate queries with same argument, if the approach of fetching data is done by this method of making queries in child instead of parent, we can make use of react built-in feature 'cache', which does request memoization and caches values for duplicate queries. Wrap your function by cache function which is imported from react.
+   - React suspence feature for lazy laoding and fallbacks.
+   - useSearchParam for saving query string in the serach inut field even after loading again or manually typeing the query string into the url. When using usesearchparam in client component, wrap it with react suspense to avoid errors during build.
+   - AS A GENERAL NOTE, BUILD YOUR APP FROM TIME TO TIME TO CHECK STATUS OF PAGE AS STATIC OR DYNAMIC AND THE CACHING STATUS, CONSIDER USING QUERY FUNCTION DATA FETHCING PATTERN, WRAP SLOW LOADING COMPS WITH SUSPENSE
